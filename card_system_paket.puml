@@ -1,0 +1,45 @@
+@startuml
+
+left to right direction
+
+actor Player
+actor Administrator
+package "Card System" {
+  usecase "Draw Card"
+  usecase "Play Card"
+  usecase "See Card"
+  usecase "Hold Card"
+  usecase "Show Building costs Card"
+  usecase "Shuffle Cards"
+  usecase "Add to Deck"
+  usecase "Get Building Card"
+  usecase "Remove Card"
+}
+
+Player -- "Draw Card"
+Player -l- "Show Building costs Card"
+Player -- "Play Card"
+Player -- "Hold Card"
+Player -- "Get Building Card"
+Administrator -- "Shuffle Cards"
+Administrator -- "Add to Deck"
+Administrator -- "Remove Card"
+Administrator --|> Player
+
+"Play Card" ..> "Draw Card" : <<extend>>
+"Get Building Card" ..> "Play Card" : <<extend>>
+"Draw Card" ..> "See Card" : <<include>>
+"Hold Card" ..> "See Card" : <<extend>>
+"Show Building costs Card" ..> "See Card" : <<extend>>
+"Shuffle Cards" ..> "Add to Deck" : <<include>>
+"Remove Card" ..> "Draw Card" : <<extend>>
+note right of "Draw Card" : LF9
+note bottom of "Play Card" : LF10
+note right of "See Card" : LF15
+note top of "Hold Card" : LF14
+note right of "Show Building costs Card" : LF12
+note left of "Shuffle Cards" : LF7
+note bottom of "Add to Deck" : LF8
+note left of "Get Building Card" : LF13
+note top of "Remove Card" : LF17
+@enduml

@@ -1,0 +1,37 @@
+@startuml
+
+left to right direction
+
+actor Player
+' actor Administrator
+package "Game Management" {
+  usecase "Start New Game"
+  usecase "Play Game"
+  usecase "Continue Game"
+  usecase "Pause Game"
+  usecase "End Game"
+  usecase "Roll dice"
+  usecase "Show Roll Value"
+}
+
+Player -- "Start New Game"
+Player -- "Continue Game"
+Player -- "Pause Game"
+Player -- "End Game"
+Player -- "Roll dice"
+' Administrator -- "sfsdf"
+note left of "Start New Game" : F1 \nGame::startNewGame()
+note left of "Continue Game" : F2 \nGame::continueGame()
+note left of "End Game" : F4 \nGame::endNewGame()
+note left of "Pause Game" : F3 \nGame::pauseGame()
+note left of "Roll dice" : F5.8.1 \nGame::rollDice()
+note right of "Show Roll Value" : F5.8.2 \nGame::showRollValue()
+note right of "Play Game" : F5
+
+"Start New Game" ..> "Play Game" : <<include>>
+"Continue Game" ..> "Play Game" : <<include>>
+"Pause Game" ..> "Play Game" : <<extend>>
+"End Game" ..> "Play Game" : <<extend>>
+"Roll dice" ..> "Show Roll Value" : <<include>>
+"Roll dice" ..> "Play Game" : <<extend>>
+@enduml

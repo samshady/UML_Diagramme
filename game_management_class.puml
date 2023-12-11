@@ -1,0 +1,30 @@
+@startuml
+
+class Game {
+  +gameStatus
+  +score
+
+  +startNewGame(): Game
+  +pauseGame()
+  +continueGame()
+  +endGame()
+}
+
+class Dice {
+  +rollValue
+  +createDice(noOfSides:Dicetyp)
+  +rollDice()
+  +showRollValue(): rollValue
+}
+
+enum Dicetyp <<enum>> {
+  4 Sided
+  6 Sided
+  8 Sided
+}
+
+hide Dicetyp methods
+Game "+game 1" *-[norank]---> "+dice *" Dice: uses
+Dice "+dice 1" -down-> "+type 1" Dicetyp: has
+
+@enduml

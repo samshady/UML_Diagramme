@@ -1,0 +1,22 @@
+@startuml
+
+class Leaderboard {
+  +noOfHighScores
+  +highScores[]
+  +showLeaderboard(): Leaderboard
+  +addNewHighScore()
+  +deleteHighScore()
+  +sortLeaderBoard()
+  +clearLeaderBoard()
+}
+
+class HighScore {
+  +nameOfPlayer
+  +countryOfPlayer
+  +score
+}
+
+hide HighScore methods
+Leaderboard "+leaderboard 1" o-[norank]----> "+highscore *" HighScore: has
+
+@enduml

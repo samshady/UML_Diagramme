@@ -1,0 +1,29 @@
+@startuml
+
+left to right direction
+
+actor Player
+actor Administrator
+package "Leaderboard Management" {
+  usecase "Show Leaderboard"
+  usecase "Add New High Score"
+  usecase "Delete High Score"
+  usecase "Sort Leaderboard"
+  usecase "Clear Leaderboard"
+}
+
+Player -- "Show Leaderboard"
+Player -- "Add New High Score"
+Player -- "Delete High Score"
+Administrator -- "Sort Leaderboard"
+Administrator -- "Clear Leaderboard"
+Administrator --|> Player
+
+note left of "Show Leaderboard" : F8 \nLeaderboard::showLeaderboard()
+note left of "Add New High Score" : F9 \nLeaderboard::addNewHighScore()
+note right of "Delete High Score" : F9.3 \nLeaderboard::deleteHighScore()
+note left of "Sort Leaderboard" : F9.1 \nLeaderboard::sortLeaderboard()
+note left of "Clear Leaderboard" : F9.2 \nLeaderboard::clearLeaderboard()
+
+"Clear Leaderboard" ..> "Delete High Score" : <<include>>
+@enduml

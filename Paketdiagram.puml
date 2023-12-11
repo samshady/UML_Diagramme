@@ -1,0 +1,23 @@
+@startuml
+skinparam linetype ortho
+left to right direction
+!define RECTANGLE class
+
+package "Game Management" {
+
+}
+
+package "Leaderboard Management" {
+
+}
+
+package "Card System" {
+
+}
+note left of "Game Management" : Anz. Klassen=2 \nAnz. Anwendungsfälle=7
+note left of "Leaderboard Management" : Anz. Klassen=2 \nAnz. Anwendungsfälle=5
+note right of "Card System" : Anz. Klassen=3 \nAnz. Anwendungsfälle=9
+"Game Management" ...> "Card System" : <<import>>
+"Game Management" ..right> "Leaderboard Management" : <<import>>
+
+@enduml

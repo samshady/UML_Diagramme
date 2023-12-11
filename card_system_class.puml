@@ -1,0 +1,92 @@
+@startuml
+
+abstract Card <<abstract>> {
+  +type
+  +value
+  +playCard()
+  +seeCard()
+  +holdCard()
+}
+
+class JungleCard {
+
+}
+
+class BuildingCard {
+    +getBuildingCard()
+}
+
+class BuildingCostsCard {
+    +showBuildingCostsCard()
+}
+
+class JungleCard {
+
+}
+
+abstract Deck <<abstract>> {
+  +noOfCards
+  +cardsInDeck[]
+  +drawCard()
+  +addToDeck()
+  +removeCard()
+  +shuffleCards()
+}
+
+enum RawMaterial <<enum>> {
+  Wood
+  Metal
+  Plastic
+}
+
+enum Animal <<enum>> {
+  Tiger
+  Snake
+  Spider
+}
+
+enum Weapon <<enum>> {
+  Axe
+  Club
+}
+
+enum Building <<enum>> {
+  Hut
+  SOS
+  Fire
+}
+
+enum RescureVehicle <<enum>> {
+  SailBoat
+  Hangglider
+  Steamship
+  HotAirBalloon
+}
+
+enum Catastrophe <<enum>> {
+  Storm
+}
+
+hide RawMaterial methods
+hide Animal methods
+hide Building methods
+hide Weapon methods
+hide Catastrophe methods
+hide RescureVehicle methods
+hide JungleCard attributes
+hide JungleCard methods
+hide BuildingCard attributes
+hide BuildingCostsCard attributes
+
+Deck "+deck 1" o--> "+cards n" Card: contains
+Card "gf" o---> "n" JungleCard: is
+Card "fgf" o-l-> "n" BuildingCard: is
+Card "fgf" o---> "n" BuildingCostsCard: is
+JungleCard "+card 1" ---> "+type 1" RawMaterial: is
+JungleCard "+card 1" ---> "+type 1" Animal: is
+JungleCard "+card 1" ---> "+type 1" Catastrophe: is
+BuildingCard "+card 1" ---> "+type 1" Building: is
+BuildingCard "+card 1" ---> "+type 1" Weapon: is
+BuildingCard "+card 1" ---> "+type 1" RescureVehicle: is
+
+@enduml
