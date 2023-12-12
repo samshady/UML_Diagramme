@@ -1,5 +1,7 @@
 @startuml
-
+skinparam linetype polyline
+skinparam linetype ortho
+top to bottom direction
 abstract Card <<abstract>> {
   +type
   +value
@@ -78,10 +80,10 @@ hide JungleCard methods
 hide BuildingCard attributes
 hide BuildingCostsCard attributes
 
-Deck "+deck 1" o--> "+cards n" Card: contains
-Card "gf" o---> "n" JungleCard: is
-Card "fgf" o-l-> "n" BuildingCard: is
-Card "fgf" o---> "n" BuildingCostsCard: is
+Deck "+deck" o----> "+cards 0..64" Card: contains
+Card <|--l- JungleCard
+Card <|---r- BuildingCard
+Card <|--- BuildingCostsCard
 JungleCard "+card 1" ---> "+type 1" RawMaterial: is
 JungleCard "+card 1" ---> "+type 1" Animal: is
 JungleCard "+card 1" ---> "+type 1" Catastrophe: is

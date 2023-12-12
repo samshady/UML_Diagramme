@@ -33,13 +33,13 @@ Administrator --|> Player
 "Show Building costs Card" ..> "See Card" : <<extend>>
 "Shuffle Cards" ..> "Add to Deck" : <<include>>
 "Remove Card" ..> "Draw Card" : <<extend>>
-note right of "Draw Card" : LF9
-note bottom of "Play Card" : LF10
-note right of "See Card" : LF15
-note top of "Hold Card" : LF14
-note right of "Show Building costs Card" : LF12
-note left of "Shuffle Cards" : LF7
-note bottom of "Add to Deck" : LF8
-note left of "Get Building Card" : LF13
-note top of "Remove Card" : LF17
+note top of "Draw Card" : F5.3 \nDeck::drawCard()
+note bottom of "Play Card" : F5.6 \nCard::playCard()
+note right of "See Card" : F5.5 \nCard::seeCard()
+note top of "Hold Card" : F5.4 \nCard::holdCard()
+note top of "Show Building costs Card" : F5.7.3 \nBuildingCostsCard::showBuildingCostsCard()
+note left of "Shuffle Cards" : F5.1 \nDeck::shuffleCards()
+note bottom of "Add to Deck" : F5.2 \nDeck::addToDeck()
+note left of "Get Building Card" : F5.7.1 \nBuildingCard::getBuildingCard()
+note top of "Remove Card" : F5.7.2 \nDeck::removeCard()
 @enduml

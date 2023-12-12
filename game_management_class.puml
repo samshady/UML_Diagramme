@@ -25,6 +25,6 @@ enum Dicetyp <<enum>> {
 
 hide Dicetyp methods
 Game "+game 1" *-[norank]---> "+dice *" Dice: uses
-Dice "+dice 1" -down-> "+type 1" Dicetyp: has
+Dice "+dice 1" -down-> "+type 1" Dicetyp: is
 
 @enduml

@@ -24,8 +24,8 @@ note left of "Start New Game" : F1 \nGame::startNewGame()
 note left of "Continue Game" : F2 \nGame::continueGame()
 note left of "End Game" : F4 \nGame::endNewGame()
 note left of "Pause Game" : F3 \nGame::pauseGame()
-note left of "Roll dice" : F5.8.1 \nGame::rollDice()
-note right of "Show Roll Value" : F5.8.2 \nGame::showRollValue()
+note left of "Roll dice" : F5.8.1 \nDice::rollDice()
+note right of "Show Roll Value" : F5.8.2 \nDice::showRollValue()
 note right of "Play Game" : F5
 
 "Start New Game" ..> "Play Game" : <<include>>
